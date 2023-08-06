@@ -2,6 +2,8 @@
 
 ## A Natural Language Interface for Interactive PDF Document Analysis
 
+![Intelligent MultiDoc QnA Platform Architecture](./docs/LangChain-Architecture.jpg)
+
 ## Introduction
 
 ---
