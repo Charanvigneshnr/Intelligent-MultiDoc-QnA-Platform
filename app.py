@@ -65,7 +65,6 @@ def handle_userinput(user_question):
             )
 
 
-# Main GUI using streamlit
 def main():
     load_dotenv()
     st.set_page_config(page_title="Chat with multiple PDFs", page_icon=":books:")
