@@ -53,13 +53,8 @@ def display_chat_history(chain):
     if st.session_state['generated']:
         with reply_container:
             for i in range(len(st.session_state['generated'])):
-                if i % 2 == 0:
-                    # User message with blue avatar
-                    message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="circle",
-                            avatar_color="green")
-                else:
-                    # AI message with green avatar
-                    message(st.session_state["generated"][i], key=str(i), avatar_style="circle", avatar_color="blue")
+                message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="bottts-neutral")
+                message(st.session_state["generated"][i], key=str(i), avatar_style="pixel-art-neutral")
 
 
 def create_conversational_chain(vector_store):
