@@ -94,7 +94,7 @@ def main():
         text_splitter = CharacterTextSplitter(separator="\n", chunk_size=1000, chunk_overlap=100, length_function=len)
         text_chunks = text_splitter.split_documents(text)
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
-                                           model_kwargs={'device': 'cpu'})
+                                           model_kwargs={'device': 'gpu'})
 
         vector_store = FAISS.from_documents(text_chunks, embedding=embeddings)
         chain = create_conversational_chain(vector_store)
