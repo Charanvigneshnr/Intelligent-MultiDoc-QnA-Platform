@@ -30,11 +30,6 @@ def initialize_session_state():
 def conversation_chat(query, chain, history):
     result = chain({"question": query, "chat_history": history})
     history.append((query, result["answer"]))
-
-    # Print intermediate responses on the fly
-    st.session_state['past'].append(query)
-    st.session_state['generated'].append(result["answer"])
-
     return result["answer"]
 
 
@@ -47,14 +42,14 @@ def display_chat_history(chain):
             submit_button = st.form_submit_button(label='Send')
         if submit_button and user_input:
             with st.spinner('Generating response...'):
+                output_placeholder = st.empty()
+                for i in range(len(st.session_state['generated'])):
+                    message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="thumbs")
+                    message(st.session_state["generated"][i], key=str(i), avatar_style="fun-emoji")
                 output = conversation_chat(user_input, chain, st.session_state['history'])
-            st.session_state['past'].append(user_input)
-            st.session_state['generated'].append(output)
-    if st.session_state['generated']:
-        with reply_container:
-            for i in range(len(st.session_state['generated'])):
-                message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="thumbs")
-                message(st.session_state["generated"][i], key=str(i), avatar_style="fun-emoji")
+                st.session_state['past'].append(user_input)
+                st.session_state['generated'].append(output)
+                output_placeholder.text(output)
 
 
 def create_conversational_chain(vector_store):
