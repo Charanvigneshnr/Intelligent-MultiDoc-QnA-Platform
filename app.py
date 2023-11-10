@@ -30,6 +30,11 @@ def initialize_session_state():
 def conversation_chat(query, chain, history):
     result = chain({"question": query, "chat_history": history})
     history.append((query, result["answer"]))
+
+    # Print intermediate responses on the fly
+    st.session_state['past'].append(query)
+    st.session_state['generated'].append(result["answer"])
+
     return result["answer"]
 
 
