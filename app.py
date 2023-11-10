@@ -71,6 +71,8 @@ def main():
     initialize_session_state()
     st.title("Intelligent MultiDoc QnA Platform :books:")
     st.sidebar.title("Upload your documents to process")
+    st.sidebar.write("After your prompt, please wait, if the response is small then it will be fast, else it will "
+                     "take some time as it is generating the full string then it prints out the response")
     uploaded_files = st.sidebar.file_uploader("Upload files", accept_multiple_files=True)
     if uploaded_files:
         text = []
