@@ -69,8 +69,8 @@ def create_conversational_chain(vector_store):
 def main():
     load_dotenv()
     initialize_session_state()
-    st.title("Multi-Docs ChatBot using llama2 :books:")
-    st.sidebar.title("Document(s) Processing")
+    st.title("Intelligent MultiDoc QnA Platform :books:")
+    st.sidebar.title("Upload your documents to process")
     uploaded_files = st.sidebar.file_uploader("Upload files", accept_multiple_files=True)
     if uploaded_files:
         text = []
