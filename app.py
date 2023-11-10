@@ -57,16 +57,14 @@ def display_chat_history(chain):
                     # User message
                     st.markdown(
                         f'<div style="display: flex; align-items: flex-start;">'
-                        f'<div style="margin-right: 10px;"><img src="logos/User.jpg'
-                        f'" style="width: 50px; height: 50px; border-radius: 50%;"></div>'
+                        f'<div style="margin-right: 10px;"><img src="./logos/User.jpg" style="width: 50px; height: 50px; border-radius: 50%;"></div>'
                         f'<div><strong>User:</strong> {st.session_state["past"][i]}</div>'
                         f'</div>', unsafe_allow_html=True, key=str(i) + '_user')
                 else:
                     # AI message
                     st.markdown(
                         f'<div style="display: flex; align-items: flex-start;">'
-                        f'<div style="margin-right: 10px;"><img src="logos/LLAMA.jpg" style="width: 50px; height: 50px; '
-                        f'border-radius: 50%;"></div>'
+                        f'<div style="margin-right: 10px;"><img src="./logos/LLAMA.jpg" style="width: 50px; height: 50px; border-radius: 50%;"></div>'
                         f'<div><strong>AI:</strong> {st.session_state["generated"][i]}</div>'
                         f'</div>', unsafe_allow_html=True, key=str(i))
 
