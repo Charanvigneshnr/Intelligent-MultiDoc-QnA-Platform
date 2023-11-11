@@ -1,1 +1,1 @@
-Added Sample PDFs as it is using the free Huggingface LLM instead of OpenAI's API key due to tax conversion issues, paid billing couldn't be activated
+Replicate API can provide only limited amount of free queries as it requires a billed account for unlimited processing, create new Replicate Accounts using Google account to use free queries
