@@ -1,7 +1,7 @@
-"""
-Import necessary libraries and modules for the application, including Streamlit for the user
-interface, langchain for natural language processing, and other utilities like dotenv and temp file.
-"""
+# """
+# Import necessary libraries and modules for the application, including Streamlit for the user
+# interface, langchain for natural language processing, and other utilities like dotenv and temp file.
+# """
 import streamlit as st
 from streamlit_chat import message
 from langchain.chains import ConversationalRetrievalChain
@@ -20,10 +20,10 @@ import tempfile
 
 load_dotenv()
 
-"""
-Define a function initialize_session_state to initialize session state variables if they are not present.
-These variables are used to store chat history and generated responses.
-"""
+# """
+# Define a function initialize_session_state to initialize session state variables if they are not present.
+# These variables are used to store chat history and generated responses.
+# """
 
 
 def initialize_session_state():
@@ -35,11 +35,11 @@ def initialize_session_state():
 		st.session_state['past'] = ["Hey!"]
 
 
-"""
-Define a function conversation_chat to handle the conversation chat. It takes a query, a conversational chain,
-and chat history as input. It updates the history with the query and its corresponding answer and updates session
-state with intermediate responses.
-"""
+# """
+# Define a function conversation_chat to handle the conversation chat. It takes a query, a conversational chain,
+# and chat history as input. It updates the history with the query and its corresponding answer and updates session
+# state with intermediate responses.
+# """
 
 
 def conversation_chat(query, chain, history):
@@ -50,11 +50,11 @@ def conversation_chat(query, chain, history):
 	return result["answer"]
 
 
-"""
-Define a function display_chat_history to display the chat history using Streamlit components. It includes a form
-with a text input for user questions and a button to submit. The generated chat history is displayed using the
-message component.
-"""
+# """
+# Define a function display_chat_history to display the chat history using Streamlit components. It includes a form
+# with a text input for user questions and a button to submit. The generated chat history is displayed using the
+# message component.
+# """
 
 
 def display_chat_history(chain):
@@ -77,11 +77,11 @@ def display_chat_history(chain):
 				message(st.session_state["generated"][i], key=str(i), avatar_style="bottts-neutral", seed="Aneka")
 
 
-"""
-Define a function create_conversational_chain to create a conversational chain. It uses the Replicate model with
-specific configurations, a vector store for document retrieval, and a conversation buffer memory to store chat
-history.
-"""
+# """
+# Define a function create_conversational_chain to create a conversational chain. It uses the Replicate model with
+# specific configurations, a vector store for document retrieval, and a conversation buffer memory to store chat
+# history.
+# """
 
 
 def create_conversational_chain(vector_store):
@@ -98,11 +98,11 @@ def create_conversational_chain(vector_store):
 	return chain
 
 
-"""
-Define the main function main to run the Streamlit application. It initializes session state, sets up the UI with
-file upload options, processes uploaded documents, creates a conversational chain, and displays the chat history. The
-application is run when the script is executed directly.
-"""
+# """
+# Define the main function main to run the Streamlit application. It initializes session state, sets up the UI with
+# file upload options, processes uploaded documents, creates a conversational chain, and displays the chat history. The
+# application is run when the script is executed directly.
+# """
 
 
 def main():
